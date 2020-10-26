@@ -1,0 +1,26 @@
+package com.biz.ems.mapper;
+
+public interface EMSDao {
+
+	@Select("SELECT * FROM tbl_ems order by b_seq desc")
+	public List<BBsVO> selectAll();
+	
+	@Select("SELECT * FROM tbl_ems WHERE b_seq = #{seq}")
+	public BBsVO findBySeq(long seq);
+	
+	/*
+	 * BBsSQL 클래스에 정의된 bbs_insert method를 호출하여
+	 * SQL문을 생성하고, 여기에 코드를 추가하라
+	 */
+	@InsertProvider(type=BBsSQL.class,method="bbs_insert")
+	@SelectKey(keyProperty = "id",
+		statement = "SELECT SEQ_ID.NEXTVAL FROM DUAL",
+		resultType = Long.class,before = true)
+	public int insert(BBsVO bbsVO);
+	
+	@UpdateProvider(type=BBsSQL.class,method="bbs_update")
+	public int update(BBsVO bbsVO);
+	
+	@Delete("DELETE FROM tbl_ems WHERE id = #{id}")
+	public int delete(long seq);
+}

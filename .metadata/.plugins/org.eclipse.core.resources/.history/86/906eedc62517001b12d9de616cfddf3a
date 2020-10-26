@@ -1,0 +1,5 @@
+package com.biz.ems.service;
+
+public interface EMSService {
+
+}
