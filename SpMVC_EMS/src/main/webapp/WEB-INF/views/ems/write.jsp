@@ -65,10 +65,6 @@ button#list {
 button#save {
 	background-color: blue;
 }
-
-.hidden {
-	display: none;
-}
 </style>
 <script>
 	$(function() {
@@ -97,7 +93,6 @@ button#save {
 		})
 	})
 </script>
-
 <form id="write-form" method="POST" enctype="mulipart/form-data">
 	<fieldset>
 		<legend>email 작성</legend>
@@ -118,13 +113,17 @@ button#save {
 		</div>
 		<div>
 			<label></label>
-			<textarea id="s_content" rows="5" cols="20" name="s_content"></textarea>
+			<textarea id="s_content" 
+					rows="5" cols="20" 
+					name="s_content"></textarea>
 		</div>
 		<div>
-			<label>첨부파일1</label> <input type="file" name="file1" >
+			<label>첨부파일1</label>
+			<input type="file" name="file1">
 		</div>
 		<div>
-			<label>첨부파일2</label> <input type="file" name="file2" >
+			<label>첨부파일2</label>
+			<input type="file" name="file2">
 		</div>
 		<div class="button-box">
 			<button type="button" id="list">리스트</button>
