@@ -5,17 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.biz.ems.mapper.EMSDao;
 import com.biz.ems.model.EMSVO;
 import com.biz.ems.service.EMSService;
 
@@ -38,11 +34,6 @@ public class EMSController {
 		return "/ems/list";
 	}
 	
-	@RequestMapping(value="/notice",method=RequestMethod.GET)
-	public String notice(Model model) {
-		return "/ems/write";
-	}
-	
 	@RequestMapping(value="/write",method=RequestMethod.GET)
 	public String write() {
 		return "/ems/write";
@@ -52,7 +43,6 @@ public class EMSController {
 	public String write(EMSVO emsVO, @RequestParam(name = "file1",required = false) MultipartFile file1, MultipartFile file2) {
 		
 		emsService.insert(emsVO, file1, file2);
-		log.debug(emsVO.toString());
 		return "redirect:/ems/list";
 	
 	}
@@ -90,5 +80,5 @@ public class EMSController {
 		return "redirect:/ems/list";
 	
 	}
-
+	
 }

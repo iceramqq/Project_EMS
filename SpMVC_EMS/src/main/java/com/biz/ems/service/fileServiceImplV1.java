@@ -10,11 +10,26 @@ import org.springframework.web.multipart.MultipartFile;
 @Service("fileServiceV1")
 public class fileServiceImplV1 implements fileService{
 
+	/*
+	 * 필드변수를 private final로 선언했을 경우
+	 * 보통 final로 선언된 변수는  선언과 동시에 생성(초기화)를 해야한다.
+	 * private final로 선언된 맴버변수는
+	 * 클래스의 생성자  메서드에서 초기화하는 것을 허용한다.
+	 * 
+	 * private final로 선언된 멤버변수는 
+	 * 반드시 클래스의 생성자 메서드에서 초기화 해야 한다.
+	 */
+	/*
+	 * private 으로 선언된 rootFolder변수를
+	 * protected로 변경
+	 * protected로 선언된 변수들은 현재 클래스
+	 */
 	protected final String rootFolder;
 	public fileServiceImplV1() {
-			rootFolder = "C:/bizwork/workspace/fileUpload";
+		rootFolder = "C:/bizwork/workspace/upload";
 	}
 	
+	@Override
 	public String fileUp(MultipartFile file) {
 		
 		if(file == null) {
@@ -62,6 +77,10 @@ public class fileServiceImplV1 implements fileService{
 		return saveFileName;
 	}
 
+	/*
+	 * 파일이름을 받아서 파일을 삭제
+	 */
+	@Override
 	public boolean fileDelete(String s_file) {
 		
 		boolean ret = false;

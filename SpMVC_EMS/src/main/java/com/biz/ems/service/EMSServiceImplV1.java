@@ -10,6 +10,9 @@ import org.springframework.web.multipart.MultipartFile;
 import com.biz.ems.mapper.EMSDao;
 import com.biz.ems.model.EMSVO;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service("emsServiceV1")
 public class EMSServiceImplV1 implements EMSService {
 
@@ -33,6 +36,7 @@ public class EMSServiceImplV1 implements EMSService {
 		String fileName2 = fileService.fileUp(file2);
 		emsVO.setS_file1(fileName1);
 		emsVO.setS_file2(fileName2);
+		log.debug(emsVO.toString());
 		emsDao.insert(emsVO);
 	}
 
@@ -61,11 +65,13 @@ public class EMSServiceImplV1 implements EMSService {
 	@Override
 	public void update(EMSVO emsVO, MultipartFile file1, MultipartFile file2) {
 		// TODO Auto-generated method stub
+		
 		String fileName1 = fileService.fileUp(file1);
 		String fileName2 = fileService.fileUp(file2);
 		emsVO.setS_file1(fileName1);
 		emsVO.setS_file2(fileName2);
 		emsDao.update(emsVO);
+		
 	}
 
 }

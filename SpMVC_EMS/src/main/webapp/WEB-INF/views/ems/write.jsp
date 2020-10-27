@@ -101,33 +101,30 @@ button#save {
 <form id="write-form" method="POST" enctype="mulipart/form-data">
 	<fieldset>
 		<legend>email 작성</legend>
-		<div class="hidden">
-			<label></label> <input name="id" type="hidden" value="${emsVO.id}"/>
+		<div>
+			<label>발송 email</label> <input name="from_email">
 		</div>
 		<div>
-			<label>발송 email</label> <input name="from_email" value="${emsVO.from_email}"/>
+			<label>받는 email</label> <input name="to_email">
 		</div>
 		<div>
-			<label>받는 email</label> <input name="to_email" value="${emsVO.to_email}"/>
+			<label>발송일자</label> <input name="s_date">
 		</div>
 		<div>
-			<label>발송일자</label> <input name="s_date" value="${emsVO.s_date}"/>
+			<label>발송시각</label> <input name="s_time">
 		</div>
 		<div>
-			<label>발송시각</label> <input name="s_time" value="${emsVO.s_time}"/>
-		</div>
-		<div>
-			<label>제목</label> <input name="s_subject" value="${emsVO.s_subject}"/>
+			<label>제목</label> <input name="s_subject">
 		</div>
 		<div>
 			<label></label>
-			<textarea id="s_content" rows="5" cols="20" name="s_content" value="${emsVO.s_content}"/></textarea>
+			<textarea id="s_content" rows="5" cols="20" name="s_content"></textarea>
 		</div>
 		<div>
-			<label>첨부파일1</label> <input type="file" name="file1" value="${emsVO.s_file1}"/>
+			<label>첨부파일1</label> <input type="file" name="file1" >
 		</div>
 		<div>
-			<label>첨부파일2</label> <input type="file" name="file2" value="${emsVO.s_file2}"/>
+			<label>첨부파일2</label> <input type="file" name="file2" >
 		</div>
 		<div class="button-box">
 			<button type="button" id="list">리스트</button>
