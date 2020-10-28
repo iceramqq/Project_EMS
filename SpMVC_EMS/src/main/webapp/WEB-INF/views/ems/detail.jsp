@@ -22,9 +22,14 @@ td {
 	display: inline-block;
 	width: 70%;
 	border: 1px solid #ccc;
+	border-radius:5px;
 	padding: 8px;
 	text-align: left;
 	margin: 10px;
+}
+
+td#content {
+	height: 100px;
 }
 
 section#button-box {
@@ -98,7 +103,7 @@ section#button-box button:hover {
 	</tr>
 	<tr>
 		<th>메일내용</th>
-		<td>${emsVO.s_content}</td>
+		<td id="content">${emsVO.s_content}</td>
 	</tr>
 	<tr>
 		<th>첨부파일1</th>

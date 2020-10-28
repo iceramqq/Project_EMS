@@ -40,7 +40,7 @@ public class EMSController {
 	}
 	
 	@RequestMapping(value="/write",method=RequestMethod.POST)
-	public String write(EMSVO emsVO,MultipartFile file1,MultipartFile file2) {
+	public String write(EMSVO emsVO,@RequestParam(name = "file1",required = false) MultipartFile file1, MultipartFile file2) {
 		
 		emsService.insert(emsVO, file1, file2);
 		return "redirect:/ems/list";
